@@ -31,11 +31,11 @@ export const Register = () => {
     }
 
     // Email validation using Regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address");
-      return;
-    }
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!emailRegex.test(email)) {
+    //   alert("Please enter a valid email address");
+    //   return;
+    // }
 
     try {
       await storeHandleSignup(username, password, email);
@@ -63,7 +63,7 @@ export const Register = () => {
       <div className={styles.signUp}>
         <h2 className={styles.title}>Sign Up</h2>
         <input
-          type="text"
+          type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}

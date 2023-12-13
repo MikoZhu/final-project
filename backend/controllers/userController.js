@@ -24,10 +24,10 @@ export const registerUserController = asyncHandler(async (req, res) => {
       );
     }
 
-    if (!emailRegex.test(email)) {
-      res.status(400);
-      throw new Error("Email should be like username@example.com ");
-    }
+    // if (!emailRegex.test(email)) {
+    //   res.status(400);
+    //   throw new Error("Email should be like username@example.com ");
+    // }
 
     // third condition
     const existingUser = await UserModel.findOne({

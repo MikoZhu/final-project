@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\S]{6,}$/;
-export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const userSchema = new Schema(
   {
     username: {
@@ -15,11 +15,11 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-      validate: {
-        validator: (password) => passwordRegex.test(password),
-        message:
-          "Password must be at least 6 characters and include lowercase, uppercase, and a number.",
-      },
+      // validate: {
+      //   validator: (password) => passwordRegex.test(password),
+      //   message:
+      //     "Password must be at least 6 characters and include lowercase, uppercase, and a number.",
+      // },
     },
     email: {
       type: String,
