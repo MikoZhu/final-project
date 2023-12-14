@@ -10,6 +10,8 @@ export const userStore = create((set, get) => ({
   setPassword: (password) => set({ password }),
   accessToken: null, // Add this if you plan to store the access token
   setAccessToken: (token) => set({ accessToken: token }),
+  user_id: "",
+  setUser_id: (user_id) => set({ user_id }),
   isLoggedIn: false, // Added to track if the user is logged in
   setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
   // FUNCTION TO REGISTER USERS
@@ -65,10 +67,12 @@ export const userStore = create((set, get) => ({
         set({
           username: username,
           accessToken: data.response.accessToken,
+          user_id: data.response.id,
           isLoggedIn: true,
         }); // Update the state with username and accessToken
         // Redirect or update UI
         localStorage.setItem("accessToken", data.response.accessToken);
+        localStorage.setItem("user_id", data.response.id);
         alert("Login successful!");
       } else {
         // Display error message from server
@@ -84,6 +88,7 @@ export const userStore = create((set, get) => ({
     // Clear user information and set isLoggedIn to false
     set({ username: "", accessToken: null, isLoggedIn: false });
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("user_id");
     // Additional logout logic if needed
   },
 }));
