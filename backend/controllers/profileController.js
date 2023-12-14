@@ -3,7 +3,7 @@ import { ProfileModel } from "../models/ProfileModel";
 import { UserModel } from "../models/UserModel";
 
 // @desc Post user's profile information
-// @route POST /profile:_id
+// @route POST /profile/:user_id
 // @access Private
 
 export const addUserProfileController = asyncHandler(async (req, res) => {
@@ -50,7 +50,7 @@ export const addUserProfileController = asyncHandler(async (req, res) => {
 });
 
 // @desc Update user's profile information
-// @route PUT /profile:_id
+// @route PUT /profile/:user_id
 // @access Private
 export const updateUserProfileController = asyncHandler(async (req, res) => {
   try {
@@ -80,7 +80,7 @@ export const updateUserProfileController = asyncHandler(async (req, res) => {
 });
 
 // @desc Get user's profile information
-// @route Get /profile:_id
+// @route Get /profile/:user_id
 // @access Private
 export const getUserProfileController = asyncHandler(async (req, res) => {
   //find the user's profile information
