@@ -6,7 +6,7 @@ export const authenticateUser = async (req, res, next) => {
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
-  )
+  ){
     try {
       // Get token from header
       accessToken = req.headers.authorization.split(" ")[1];
@@ -24,4 +24,7 @@ export const authenticateUser = async (req, res, next) => {
     } catch (e) {
       res.status(500).json({ sucess: false, response: e.message });
     }
+  }else{
+    res.status(401).json({ success: false, response: "Missing authorization token"});
+  }
 };
