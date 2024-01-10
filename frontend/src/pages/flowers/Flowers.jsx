@@ -33,6 +33,7 @@ export const Flowers = () => {
   const [flower, setFlower] = useState({});
   const [subscriptionOption, setSubscriptionOption] = useState('weekly');
   const [quantity, setQuantity] = useState(1);
+  const [activeOption, setActiveOption] = useState('');
   // State to manage if Add to Cart button is enabled
   const [isAddToCartEnabled, setIsAddToCartEnabled] = useState(false);
 
@@ -143,6 +144,8 @@ export const Flowers = () => {
     localStorage.setItem('flowerSubscriptionOptions', JSON.stringify(newFlowerOptions));
     // Enable the Add to Cart button when a valid option is selected
     setIsAddToCartEnabled(true);
+    // Set the active option for styling purposes
+    setActiveOption(option);
     console.log('[handleOptionChange] Option changed:', option, 'Quantity:', newQuantity);
   };
 
@@ -175,32 +178,54 @@ export const Flowers = () => {
       <section className={styles.flowerSection}>
         <div className={styles.flowerCard}>
           {image_selector(type, true)}
-          <div className={styles.cardInfo}>
-            <h1>{t(`flowers.${flower.type}`)}</h1>
-            <p>{flower.price} {t("flowers.currency")}/{t("flowers.week")}</p>
-            <div className={styles.flexInfo}>
-              <p>{t("flowers.options")}</p>
-              <div className={styles.optionSelection}>
-                <button className={styles.flowerButton} onClick={() => handleOptionChange('yearly')}>{t("flowers.yearly")}</button>
-                <button className={styles.flowerButton} onClick={() => handleOptionChange('monthly')}>{t("flowers.monthly")}</button>
-                <button className={styles.flowerButton} onClick={() => handleOptionChange('weekly')}>{t("flowers.weekly")}</button>
+          <div className={styles.cardWrapper}>
+            <div className={styles.cardInfo}>
+              <h1>{t(`flowers.${flower.type}`)}</h1>
+              <p>{flower.price} {t("flowers.currency")}/{t("flowers.week")}</p>
+              <div className={styles.flexInfo}>
+                <p>{t("flowers.options")}</p>
+                <div className={styles.optionSelection}>
+                  <button
+                    className={`${styles.flowerButton} ${activeOption === 'yearly' ? styles.active : ''}`}
+                    onClick={() => handleOptionChange('yearly')}
+                  >
+                    {t("flowers.yearly")}
+                  </button>
+                  <button
+                    className={`${styles.flowerButton} ${activeOption === 'monthly' ? styles.active : ''}`}
+                    onClick={() => handleOptionChange('monthly')}
+                  >
+                    {t("flowers.monthly")}
+                  </button>
+                  <button
+                    className={`${styles.flowerButton} ${activeOption === 'weekly' ? styles.active : ''}`}
+                    onClick={() => handleOptionChange('weekly')}
+                  >
+                    {t("flowers.weekly")}
+                  </button>
+                </div>
+              </div>
+              <div className={styles.flexInfo}>
+                <p>{t("flowers.quantity")}</p>
+                <div>
+                  <span className={`${styles.greenbox} ${styles.quantity}`}>{quantity}</span>
+                  {t("flowers.bouquets")}
+                </div>
+              </div>
+              <div className={styles.flexInfo}>
+                <p>{t("flowers.delivery")}</p>
+                <div>
+                  <span className={styles.greenbox}>{t("flowers.selfPickup")}</span> ({t("flowers.comingSoon")}: {t("flowers.delivery")})
+                </div>
               </div>
             </div>
-            <div className={styles.flexInfo}>
-              <p>{t("flowers.quantity")}</p>
-              <div>
-                <span className={styles.greenbox}>{quantity}</span>
-                {t("flowers.bouquets")}
-              </div>
-            </div>
-            <div className={styles.flexInfo}>
-              <p>{t("flowers.delivery")}</p>
-              <div>
-                <span className={styles.greenbox}>{t("flowers.selfPickup")}</span> ({t("flowers.comingSoon")}: {t("flowers.delivery")})
-              </div>
-            </div>
+            <button
+              className={`${styles.addButton} ${styles.flowerButton}`}
+              onClick={handleAddToCart}
+              disabled={!isAddToCartEnabled}>
+              {t("flowers.addCart")}
+            </button>
           </div>
-          <button className={`${styles.addButton} ${styles.flowerButton}`} onClick={handleAddToCart} disabled={!isAddToCartEnabled}>{t("flowers.addCart")}</button>
         </div>
       </section>
       <section>
@@ -225,17 +250,3 @@ export const Flowers = () => {
     </>
   );
 };
-
-
-{/* <div className={styles.flowers}>
-        <img src={basic} alt="Basic image" className={styles.image} />
-        <div className={styles.box}>
-          <h3>Basic</h3>
-          <img
-            src={arrow}
-            alt="right arrow"
-            className={styles.arrow}
-            aria-label="button"
-            onClick={() => navigate("/flowers/basic")}
-          />
-        </div> */}
