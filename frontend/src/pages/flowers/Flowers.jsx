@@ -11,6 +11,7 @@ import { MoreInfo } from '../../components/more_info/MoreInfo';
 import basicImage from "../../assets/images/basic.png";
 import standardImage from "../../assets/images/standard.png";
 import largeImage from "../../assets/images/large.png";
+import styles from "./flowers.module.css";
 
 // Define the available flower types
 const allFlowerTypes = ['basic', 'standard', 'large'];
@@ -45,12 +46,15 @@ export const Flowers = () => {
   const otherFlowerTypes = allFlowerTypes.filter(t => t !== type);
 
   // Function to select images to display
-  const image_selector = (type) => {
+  const image_selector = (type, isMainImage = false) => {
     const selectedImage = flowerImages[type];
-    return selectedImage 
-      ? <img src={selectedImage} alt={`Flower bouquet of size ${type}`} />
+    const imageClass = isMainImage ? styles.flowerImage : styles.otherFlowerImage;
+
+    return selectedImage
+      ? <img src={selectedImage} alt={`Flower bouquet of size ${type}`} className={imageClass} />
       : <p>{t("flowers.error")}</p>;
   };
+
 
   // UseEffect to fetch specific flower data based on the flower type
   useEffect(() => {
@@ -168,36 +172,38 @@ export const Flowers = () => {
   return (
     <>
       <Navbar />
-      <section>
-        {image_selector(type)}
-        <div>
-        <h1>{t("flowers.product")} {t(`flowers.${flower.type}`)}</h1>
-          <p>{flower.price} {t("flowers.currency")}/{t("flowers.week")}</p>
+      <section className={styles.flowerSection}>
+        <div className={styles.flowerCard}>
+          {image_selector(type, true)}
           <div>
-            <p>{t("flowers.options")}</p>
+            <h1>{t(`flowers.${flower.type}`)}</h1>
+            <p>{flower.price} {t("flowers.currency")}/{t("flowers.week")}</p>
             <div>
-              <button onClick={() => handleOptionChange('yearly')}>{t("flowers.yearly")}</button>
-              <button onClick={() => handleOptionChange('monthly')}>{t("flowers.monthly")}</button>
-              <button onClick={() => handleOptionChange('weekly')}>{t("flowers.weekly")}</button>
+              <p>{t("flowers.options")}</p>
+              <div>
+                <button onClick={() => handleOptionChange('yearly')}>{t("flowers.yearly")}</button>
+                <button onClick={() => handleOptionChange('monthly')}>{t("flowers.monthly")}</button>
+                <button onClick={() => handleOptionChange('weekly')}>{t("flowers.weekly")}</button>
+              </div>
             </div>
+            <div>
+              <p>{t("flowers.options")}
+                <span>{quantity}</span>
+                {t("flowers.bouquets")}
+              </p>
+            </div>
+            <div>
+              <p>{t("flowers.delivery")}</p>
+              <span>{t("flowers.selfPickup")}</span> ({t("flowers.comingSoon")}: {t("flowers.delivery")})
+            </div>
+            <button onClick={handleAddToCart} disabled={!isAddToCartEnabled}>{t("flowers.addCart")}</button>
           </div>
-          <div>
-            <p>{t("flowers.options")}
-              <span>{quantity}</span>
-              {t("flowers.bouquets")}
-            </p>
-          </div>
-          <div>
-            <p>{t("flowers.delivery")}</p>
-            <span>{t("flowers.selfPickup")}</span> ({t("flowers.comingSoon")}: {t("flowers.delivery")})
-          </div>
-          <button onClick={handleAddToCart} disabled={!isAddToCartEnabled}>{t("flowers.addCart")}</button>
         </div>
       </section>
       <section>
         <MoreInfo />
       </section>
-      <section>
+      <section className={styles.moreInfo}>
         <h2>{t("flowers.otherItems")}</h2>
         {otherFlowerTypes.map((otherType) => (
           <div key={otherType}>
