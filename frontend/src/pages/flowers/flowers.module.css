@@ -10,11 +10,12 @@
     gap: 2rem;
 }
 
-.cardWrapper{
+.cardWrapper {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
+
 .cardInfo {
     display: flex;
     flex-direction: column;
@@ -35,7 +36,8 @@
 }
 
 .active {
-    background-color: #424D2D;;
+    background-color: #424D2D;
+    ;
 }
 
 .addButton {
@@ -97,7 +99,7 @@
 .otherFlowerImage {
     width: 100%;
     height: 178px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 
@@ -109,6 +111,8 @@
         flex-direction: row;
         gap: 2rem;
     }
+
+    /* -- flower images -- */
 
     .flowerImage {
         width: 35%;
@@ -127,7 +131,8 @@
 /* -- desktop -- */
 @media (min-width:1024px) {
     .flowerSection {
-        margin: 5rem;
+        width: 862px;
+        margin: 0 auto;
     }
 
     .flowerCard {
@@ -136,15 +141,34 @@
         gap: 5rem;
     }
 
+    .cardWrapper{
+        justify-content: space-between;
+    }
+    .otherItems {
+        width: 862px;
+        margin: 0 auto;
+    }
+
+    .otherItemsCardContainer {
+        gap: 5rem;
+        flex-direction: start;
+    }
+
+    .otherItemsCard {
+        max-width: 30%;
+    }
+
     /* -- flower images -- */
 
     .flowerImage {
-        width: 534px;
-        height: 583px;
+        width: 100%;
+        height: 400px;
+        object-fit: contain;
     }
 
     .otherFlowerImage {
-        width: 386px;
-        height: 520px;
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
     }
 }
