@@ -1,7 +1,7 @@
 // Importing necessary dependencies from React and the application
 import { useEffect, useState } from 'react';
 import { useTranslation } from "react-i18next";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import { cartStore } from '../../stores/cartStore';
 import { userStore } from '../../stores/userStore';
@@ -206,15 +206,17 @@ export const Flowers = () => {
       <section>
         <MoreInfo />
       </section>
-      <section className={styles.moreInfo}>
-        <div className={styles.moreInfoBox}>
-          <h2>{t("flowers.otherItems")}</h2>
+      <section className={styles.otherItems}>
+        <h2>{t("flowers.otherItems")}</h2>
+        <div className={styles.otherItemsCardContainer}>
           {otherFlowerTypes.map((otherType) => (
-            <div key={otherType}>
+            <div
+              onClick={() => navigate(`/flowers/${otherType}`)}
+              key={otherType}
+              className={styles.otherItemsCard}
+            >
               {image_selector(otherType)}
-              <Link className={styles.link} to={`/flowers/${otherType}`}>
-                <h3>{t(`flowers.${otherType}`)}</h3>
-              </Link>
+              <h3 className={styles.otherItemsH3}>{t(`flowers.${otherType}`)}</h3>
             </div>
           ))}
         </div>
@@ -223,3 +225,17 @@ export const Flowers = () => {
     </>
   );
 };
+
+
+{/* <div className={styles.flowers}>
+        <img src={basic} alt="Basic image" className={styles.image} />
+        <div className={styles.box}>
+          <h3>Basic</h3>
+          <img
+            src={arrow}
+            alt="right arrow"
+            className={styles.arrow}
+            aria-label="button"
+            onClick={() => navigate("/flowers/basic")}
+          />
+        </div> */}

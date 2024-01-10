@@ -29,7 +29,7 @@
     border: 1px solid #424D2D;
 }
 
-.addButton{
+.addButton {
     width: auto;
     max-width: 50%;
 }
@@ -48,37 +48,42 @@
     border: 1px solid #424D2D;
 }
 
-/* -- flower images -- */
-
 .flowerImage {
     width: 100%;
     height: auto;
 }
 
-.otherFlowerImage {
-    width: 100%;
-    height: auto;
-}
 
-
-/* -- More Information -- */
-.moreInfo {
+/* -- Other Items -- */
+.otherItems {
     margin: 4rem 1rem 5rem 1rem;
-}
-
-.moreInfoBox{
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.link{
-    text-decoration: none;
-    color: #424D2D;
+.otherItemsCardContainer {
+    display: flex;
+    gap: 1rem;
 }
 
-.link:hover{
+.otherItemsCard {
+    width: calc(50% - 0.5rem);
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+}
+
+.otherItemsH3:hover {
     text-decoration: underline;
+}
+
+.otherFlowerImage {
+    width: 100%;
+    height: 178px;
+    object-fit: fill;
 }
 
 
