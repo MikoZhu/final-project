@@ -1,7 +1,6 @@
 // Importing necessary dependencies from React and the application
 import { useEffect, useState } from 'react';
 import { useTranslation } from "react-i18next";
-// import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import { cartStore } from '../../stores/cartStore';
 import { userStore } from '../../stores/userStore';
@@ -33,7 +32,6 @@ export const Flowers = () => {
   const [flower, setFlower] = useState({});
   const [subscriptionOption, setSubscriptionOption] = useState('weekly');
   const [quantity, setQuantity] = useState(1);
-  const [activeOption, setActiveOption] = useState('');
   // State to manage if Add to Cart button is enabled
   const [isAddToCartEnabled, setIsAddToCartEnabled] = useState(false);
 
@@ -47,15 +45,12 @@ export const Flowers = () => {
   const otherFlowerTypes = allFlowerTypes.filter(t => t !== type);
 
   // Function to select images to display
-  const image_selector = (type, isMainImage = false) => {
+  const image_selector = (type) => {
     const selectedImage = flowerImages[type];
-    const imageClass = isMainImage ? styles.flowerImage : styles.otherFlowerImage;
-
-    return selectedImage
-      ? <img src={selectedImage} alt={`Flower bouquet of size ${type}`} className={imageClass} />
+    return selectedImage 
+      ? <img src={selectedImage} alt={`Flower bouquet of size ${type}`} />
       : <p>{t("flowers.error")}</p>;
   };
-
 
   // UseEffect to fetch specific flower data based on the flower type
   useEffect(() => {
@@ -144,8 +139,6 @@ export const Flowers = () => {
     localStorage.setItem('flowerSubscriptionOptions', JSON.stringify(newFlowerOptions));
     // Enable the Add to Cart button when a valid option is selected
     setIsAddToCartEnabled(true);
-    // Set the active option for styling purposes
-    setActiveOption(option);
     console.log('[handleOptionChange] Option changed:', option, 'Quantity:', newQuantity);
   };
 
@@ -176,47 +169,47 @@ export const Flowers = () => {
     <>
       <Navbar />
       <section className={styles.flowerSection}>
-        <div className={styles.flowerCard}>
-          {image_selector(type, true)}
-          <div className={styles.cardWrapper}>
+      <div className={styles.flowerCard}>
+        {image_selector(type)}
+        <div className={styles.cardWrapper}>
             <div className={styles.cardInfo}>
-              <h1>{t(`flowers.${flower.type}`)}</h1>
-              <p>{flower.price} {t("flowers.currency")}/{t("flowers.week")}</p>
-              <div className={styles.flexInfo}>
-                <p>{t("flowers.options")}</p>
-                <div className={styles.optionSelection}>
-                  <button
-                    className={`${styles.flowerButton} ${activeOption === 'yearly' ? styles.active : ''}`}
+        <h1>{t(`flowers.${flower.type}`)}</h1>
+          <p>{flower.price} {t("flowers.currency")}/{t("flowers.week")}</p>
+          <div className={styles.flexInfo}>
+            <p>{t("flowers.options")}</p>
+            <div className={styles.optionSelection}>
+            <button
+                    className={`${styles.flowerButton}`}
                     onClick={() => handleOptionChange('yearly')}
                   >
                     {t("flowers.yearly")}
                   </button>
                   <button
-                    className={`${styles.flowerButton} ${activeOption === 'monthly' ? styles.active : ''}`}
+                    className={`${styles.flowerButton}`}
                     onClick={() => handleOptionChange('monthly')}
                   >
                     {t("flowers.monthly")}
                   </button>
                   <button
-                    className={`${styles.flowerButton} ${activeOption === 'weekly' ? styles.active : ''}`}
+                    className={`${styles.flowerButton}`}
                     onClick={() => handleOptionChange('weekly')}
                   >
                     {t("flowers.weekly")}
                   </button>
-                </div>
+              </div>
               </div>
               <div className={styles.flexInfo}>
-                <p>{t("flowers.quantity")}</p>
-                <div>
-                  <span className={`${styles.greenbox} ${styles.quantity}`}>{quantity}</span>
-                  {t("flowers.bouquets")}
-                </div>
+            <p>{t("flowers.quantity")}</p>
+            <div>
+            <span className={`${styles.greenbox} ${styles.quantity}`}>{quantity}</span>
+              {t("flowers.bouquets")}
+              </div>
               </div>
               <div className={styles.flexInfo}>
-                <p>{t("flowers.delivery")}</p>
-                <div>
-                  <span className={styles.greenbox}>{t("flowers.selfPickup")}</span> ({t("flowers.comingSoon")}: {t("flowers.delivery")})
-                </div>
+            <p>{t("flowers.delivery")}</p>
+            <div>
+            <span className={styles.greenbox}>{t("flowers.selfPickup")}</span> ({t("flowers.comingSoon")}: {t("flowers.delivery")})
+            </div>
               </div>
             </div>
             <button
@@ -225,16 +218,16 @@ export const Flowers = () => {
               disabled={!isAddToCartEnabled}>
               {t("flowers.addCart")}
             </button>
-          </div>
+            </div>
         </div>
       </section>
       <section>
         <MoreInfo />
       </section>
-      <section className={styles.otherItems}>
+        <section className={styles.otherItems}>
         <h2>{t("flowers.otherItems")}</h2>
         <div className={styles.otherItemsCardContainer}>
-          {otherFlowerTypes.map((otherType) => (
+        {otherFlowerTypes.map((otherType) => (
             <div
               onClick={() => navigate(`/flowers/${otherType}`)}
               key={otherType}
@@ -244,7 +237,7 @@ export const Flowers = () => {
               <h3 className={styles.otherItemsH3}>{t(`flowers.${otherType}`)}</h3>
             </div>
           ))}
-        </div>
+          </div>
       </section>
       <Footer />
     </>

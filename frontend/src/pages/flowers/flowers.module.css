@@ -35,11 +35,6 @@
     border: 1px solid #424D2D;
 }
 
-.active {
-    background-color: #424D2D;
-    ;
-}
-
 .addButton {
     width: auto;
     max-width: 50%;
