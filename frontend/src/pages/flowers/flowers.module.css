@@ -131,7 +131,7 @@
 /* -- desktop -- */
 @media (min-width:1024px) {
     .flowerSection {
-        width: 862px;
+        width: 860px;
         margin: 0 auto;
     }
 
@@ -144,8 +144,17 @@
     .cardWrapper{
         justify-content: space-between;
     }
+
+    .cardInfo {
+        gap: 2rem;
+    }
+
+    .addButton {
+        width: auto;
+        max-width: 60%;
+    }
     .otherItems {
-        width: 862px;
+        width: 860px;
         margin: 0 auto;
     }
 
@@ -162,8 +171,8 @@
 
     .flowerImage {
         width: 100%;
-        height: 400px;
-        object-fit: contain;
+        height: 500px;
+        object-fit: fill;
     }
 
     .otherFlowerImage {
