@@ -139,6 +139,7 @@ export const userStore = create((set, get) => ({
     localStorage.removeItem("flowerSubscriptionOptions");
     localStorage.removeItem("userID");
     localStorage.removeItem("cartData");
+    cartStore.getState().emptyCart();
     console.log("Cleared tempCart from local storage");
   },
 }));
