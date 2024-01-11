@@ -55,6 +55,7 @@ export const ProfileForm = () => {
   useEffect(() => {
     checkProfileStatus();
   }, []);
+  
   const addProfile = async () => {
     if (!lastName || !firstName || !phone) {
       alert("Please enter last name, first name, and phone");

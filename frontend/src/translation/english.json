@@ -2,25 +2,25 @@
     "stories": [
       {
         "id": 1,
-        "image": "src/assets/images/wither.png",
+        "image": "../../src/assets/images/wither.png",
         "title": "Wither",
         "content": "When we can understand that perfection is not natural and become aware that life truly blossoms because of its continuous wilting, we can comprehend that all beauty is hidden in the fleeting details. Just like the withering of plants, people too will age, and in their disappearance, every moment becomes more precious, authentic, and beautiful."
       },
       {
         "id": 2,
-        "image": "src/assets/images/gentle.png",
+        "image": "../../src/assets/images/gentle.png",
         "title": "Gently",
         "content":"Living with plants, we can tangibly experience gentleness, devoid of the sharpness of steel, only the softness that grows toward the sun. Through coexisting with plants, we learn to face life with tenderness.\n\nWe believe that true gentleness is not a sign of weakness; it encompasses understanding and strength. Confronting the awe of the vast world and the self-assured resilience of life, understanding the inevitable hardships, being willing to believe in unimaginable depths, and absorbing malice with our bodies and emotions, being able to get hurt and recover, is a display of true strength.\n\nTherefore, gentleness is precious; it can become the endpoint of malice."
       },
       {
         "id": 3,
-        "image": "src/assets/images/toward.png",
+        "image": "../../src/assets/images/toward.png",
         "title": "Being-toward-death",
         "content": "The philosophical concept articulated by German philosopher Martin Heidegger is that humans are \"Being-towards-death.\"\n\nFrom the moment of birth, we are oriented towards death, and the awareness of living each day is a \"being-present\" in this process, situated within such a vast entirety. It is a profound and significant self-awareness in life. When people avoid contemplating death, they are, to some extent, avoiding reflecting on the essence of life. Conversely, only when we deeply understand the proximity of death can we have the most compelling motivation to seek and sense the meaning inherent in life.\n\nMay we be reminded every day in the company of plants not to evade the inevitability of demise, to learn to be gentle with life, and to live honestly."
       }
     ],
     "meet":{
-      "image":"src/assets/images/people_flower.png",
+      "image":"../../src/assets/images/people_flower.png",
       "title":"Nice to meet you!",
       "name":"We are Flora Echo",
       "content1":"So glad you are here! \"Floral Echo\" conveys the idea of a reflection of the beauty, essence, or characteristics of flowers. ",

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Translate } from "../../pages/Translate";
 import { useTranslation } from "react-i18next";
-import footerFlowerIcon from "../../assets/icons/icons8-flower-64.svg";
+import footerFlowerIcon from "/src/assets/icons/icons8-flower-64.svg";
 import styles from "../footer/footer.module.css";
 
 export const Footer = () => {
@@ -20,7 +20,7 @@ export const Footer = () => {
             {t("footer.weeklyBouquet")}
             <button onClick={toggleBouquetMenu} className={styles.footerButton}>
               <img
-                src="../../../src/assets/icons/icons8-down-48.png"
+                src="../../src/assets/icons/icons8-down-48.png"
                 alt="scrolldown menu"
               />
             </button>
@@ -62,19 +62,19 @@ export const Footer = () => {
           <div className={styles.footerIcons}>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <img
-                src="../../../src/assets/icons/icons8-github-60.png"
+                src="../../src/assets/icons/icons8-github-60.png"
                 alt="github icon"
               />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <img
-                src="../../../src/assets/icons/icons8-linkedin-50(1).png"
+                src="../../src/assets/icons/icons8-linkedin-50(1).png"
                 alt="linkedin icon"
               />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <img
-                src="../../../src/assets/icons/icons8-facebook-50.png"
+                src="../../src/assets/icons/icons8-facebook-50.png"
                 alt="facebook icon"
               />
             </a>
