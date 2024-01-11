@@ -4,8 +4,10 @@ import { useNavigate, Link } from "react-router-dom";
 import { Logo } from "../../components/logo/Logo";
 import styles from "./profileForm.module.css";
 import { format } from "date-fns";
+import { useTranslation } from "react-i18next";
 const apiEnv = import.meta.env.VITE_BACKEND_API;
 export const ProfileForm = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const id = userStore.getState().id;
   const [profileState, setProfileState] = useState({
@@ -162,7 +164,7 @@ export const ProfileForm = () => {
     <div className={styles.profileForm}>
       <nav>
         <ul className={styles.back}>
-          <Link to={`/profile/${id}`}>Back</Link>
+          <Link to={`/profile/${id}`}>{t("profile.back")}</Link>
         </ul>
         <ul className={styles.logo}>
           <Logo />
@@ -189,7 +191,7 @@ export const ProfileForm = () => {
             }
           />
 
-          <label htmlFor="lastName">Last Name:</label>
+          <label htmlFor="lastName">{t("profile.lastName")}</label>
           <input
             type="text"
             id="lastName"
@@ -202,7 +204,7 @@ export const ProfileForm = () => {
             }
           />
 
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="firstName">{t("profile.firstName")}</label>
           <input
             type="text"
             id="firstName"
@@ -215,7 +217,7 @@ export const ProfileForm = () => {
             }
           />
 
-          <label htmlFor="phone">Phone Number:</label>
+          <label htmlFor="phone">{t("profile.phone")}</label>
           <input
             type="tel"
             id="phone"
@@ -228,7 +230,7 @@ export const ProfileForm = () => {
             }
           />
 
-          <label htmlFor="color">Favorite Color:</label>
+          <label htmlFor="color">{t("profile.color")}</label>
           <input
             type="text"
             id="color"
@@ -241,7 +243,7 @@ export const ProfileForm = () => {
             }
           />
 
-          <label htmlFor="flower">Favorite Flower:</label>
+          <label htmlFor="flower">{t("profile.flower")}</label>
           <input
             type="text"
             id="flower"
@@ -254,7 +256,7 @@ export const ProfileForm = () => {
             }
           />
 
-          <label htmlFor="important">Important Date</label>
+          <label htmlFor="important">{t("profile.date")}</label>
           <input
             type="text"
             id="important"
@@ -269,7 +271,7 @@ export const ProfileForm = () => {
           />
           <div className={styles.updateBt}>
             <button type="submit">
-              {hasProfile ? "Update Profile" : "Add New Profile"}
+              {t(hasProfile ? "profile.button.update" : "profile.button.new")}
             </button>
           </div>
         </form>

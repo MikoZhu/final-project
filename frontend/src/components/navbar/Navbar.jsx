@@ -1,31 +1,29 @@
 import styles from "../navbar/navbar.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { userStore } from "../../stores/userStore";
+import { useTranslation } from "react-i18next";
 import { Logo } from "../../components/logo/Logo";
 import down from "../../assets/icons/icons8-down-64.png";
 import hamburgerIcon from "../../assets/icons/hamburger.png";
 
 export const Navbar = () => {
+  const { t } = useTranslation();
   const [showOptions, setShowOptions] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const { id } = userStore((state) => ({
-    id: state.id,
-  }));
   const navigate = useNavigate();
 
-    // Retrieve user ID from local storage
-    const userId = localStorage.getItem('userID');
+  // Retrieve user ID from local storage
+  const userId = localStorage.getItem("userID");
 
-    const handleCartClick = (event) => {
-      // Prevent default Link behavior
-      event.preventDefault();
-      if (userId) {
-        navigate(`/cart/${userId}`);
-      } else {
-        navigate('/login');
-      }
-    };
+  const handleCartClick = (event) => {
+    // Prevent default Link behavior
+    event.preventDefault();
+    if (userId) {
+      navigate(`/cart/${userId}`);
+    } else {
+      navigate("/login");
+    }
+  };
 
   const toggleOptions = () => {
     setShowOptions(!showOptions);
@@ -42,7 +40,7 @@ export const Navbar = () => {
         {/* mobile menu */}
 
         <nav className={styles.navbar}>
-          <div>
+          <div className={styles.mobileNavbar}>
             <img
               src={hamburgerIcon}
               alt="hamburger icon"
@@ -52,7 +50,9 @@ export const Navbar = () => {
             {showMobileMenu && (
               <div className={styles.mobile}>
                 <li className={styles.flower}>
-                  <span onClick={toggleOptions}>weekly bouquets</span>
+                  <span onClick={toggleOptions}>
+                    {t("navbar.weeklyBouquet")}
+                  </span>
                   <img
                     src={down}
                     alt="down arrow"
@@ -62,23 +62,33 @@ export const Navbar = () => {
                   {showOptions && (
                     <ul className={styles.mobile_options}>
                       <li>
-                        <Link to="/flowers/basic">Basic</Link>
+                        <Link to="/flowers/basic">
+                          {t("bouquetType.basic")}
+                        </Link>
                       </li>
                       <li>
-                        <Link to="/flowers/standard">Standard</Link>
+                        <Link to="/flowers/standard">
+                          {t("bouquetType.standard")}
+                        </Link>
                       </li>
                       <li>
-                        <Link to="/flowers/large">Large</Link>
+                        <Link to="/flowers/large">
+                          {t("bouquetType.large")}
+                        </Link>
                       </li>
                     </ul>
                   )}
                 </li>
 
                 <Link to="/login" className={styles.linkContainer}>
-                  my account
+                  {t("navbar.myAccount")}
                 </Link>
-                <Link to={`/cart/${userId}`} onClick={handleCartClick} className={styles.linkContainer}>
-                  cart
+                <Link
+                  to={`/cart/${userId}`}
+                  onClick={handleCartClick}
+                  className={styles.linkContainer}
+                >
+                  {t("navbar.cart")}
                 </Link>
               </div>
             )}
@@ -88,7 +98,7 @@ export const Navbar = () => {
           {/* {!showMobileMenu && ( */}
           <ul className={styles.ul}>
             <li className={styles.flower}>
-              <span onClick={toggleOptions}>weekly bouquet</span>
+              <span onClick={toggleOptions}>{t("navbar.weeklyBouquet")}</span>
               <img
                 src={down}
                 alt="down arrow"
@@ -98,23 +108,29 @@ export const Navbar = () => {
               {showOptions && (
                 <ul className={styles.options}>
                   <li>
-                    <Link to="/flowers/basic">Basic</Link>
+                    <Link to="/flowers/basic">{t("bouquetType.basic")}</Link>
                   </li>
                   <li>
-                    <Link to="/flowers/standard">Standard</Link>
+                    <Link to="/flowers/standard">
+                      {t("bouquetType.standard")}
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/flowers/large">Large</Link>
+                    <Link to="/flowers/large">{t("bouquetType.large")}</Link>
                   </li>
                 </ul>
               )}
             </li>
 
             <Link to="/login" className={styles.linkContainer}>
-              my account
+              {t("navbar.myAccount")}
             </Link>
-            <Link to={`/cart/${userId}`} onClick={handleCartClick} className={styles.linkContainer}>
-              cart
+            <Link
+              to={`/cart/${userId}`}
+              onClick={handleCartClick}
+              className={styles.linkContainer}
+            >
+              {t("navbar.cart")}
             </Link>
           </ul>
           {/* )} */}

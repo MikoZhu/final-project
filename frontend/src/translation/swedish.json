@@ -1,4 +1,19 @@
 {
+  "landingPage":{
+    "header":"Veckans dos av färska blommor:",
+    "content1":"\"En blommas prakt ligger i dess graciösa överlåtelse till tiden.\"",
+    "content2":"\"Det vackra med en blomma är att den kommer att vissna.\"",
+    "storiesTitle":"Blommornas språk och berättelser",
+    "button":{
+      "weeklyBouquet":"Veckobukett",
+      "contactUs":"Kontakta oss"
+    }
+},
+"navbar":{
+  "weeklyBouquet":"veckobukett",
+  "myAccount":"mitt konto",
+  "cart":"varukorg"
+  },
   "stories": [
     {
       "id": 1,
@@ -22,8 +37,8 @@
   "meet": {
     "image": "src/assets/images/people_flower.png",
     "title": "Trevligt att träffas!",
-    "name": "Vi är Flora Echo",
-    "content1": "Så glad att du är här! \"Flora Echo\" förmedlar tanken på en reflektion av skönheten, essensen eller egenskaperna hos blommor.",
+    "name": "Vi är FloraEcho",
+    "content1": "Så glad att du är här! \"FloraEcho\" förmedlar tanken på en reflektion av skönheten, essensen eller egenskaperna hos blommor.",
     "content2": "Jag önskar att bära denna förväntan, med veckovisa blommor som bärare. Genom att föra in blommor i varje individ och familjs liv signalerar det inte bara skönhet utan erbjuder också en mjuk upplevelse av vissning, konfronterar en långsam och tyst förfall.",
     "content3": "Varje mottagare av blommorna förstår dess oundvikliga resa mot vissning. Genom sällskapet med färska blommor upplever de livets och dödens cykel, praktiserar konsten att säga adjö, leva fritt och ömt. Jag hoppas att varje sändare av blommor kan fyllas med förväntningar, låta kortet förmedla känslor."
   },
@@ -52,6 +67,24 @@
         ]
       }
     ]
+  },
+  "profile":{
+    "back":"Tillbaka",
+    "logOut":"Logga Ut",
+    "cart":"Varukorg",
+    "edit":"Redigera Profil",
+    "personal":"Personuppgifter:",
+    "lastName":"Efteramn",
+    "firstName":"Förnamn",
+    "phone":"Telefonnummer",
+    "color":"Favoritfärg",
+    "flower":"Favoritblomma",
+    "date":"Viktigt Datum",
+    "button":{
+      "file":"Välj Fil",
+      "update":"Updatera Profil",
+      "new":"Lägg Till Ny Profil"
+    }
   },
   "flowers": {
     "basic": "Basic",

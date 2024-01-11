@@ -59,17 +59,26 @@
 }
 
 /* hamburger menu */
-.hamburgerIcon{
-    width: 40px;
+.mobileNavbar{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.hamburgerIcon{    
+    width: 40px;  
+    margin-right:0.8rem;
+    margin-bottom:0.5rem;  
 }
 .mobile{
     display: flex;
     flex-direction: column;
+    align-items: end;
 }
 
 .mobile_options li{
     text-decoration: none;
     list-style: none;
+    text-align: end;
 }
 .mobile_options li a{
     text-decoration: none;

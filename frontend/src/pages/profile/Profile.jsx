@@ -6,7 +6,9 @@ import { profileStore } from "../../stores/profileStore";
 import styles from "./profile.module.css";
 import { Logo } from "../../components/logo/Logo";
 import { format } from "date-fns";
+import { useTranslation } from "react-i18next";
 export const Profile = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const { isLoggedIn, accessToken } = userStore();
   const { firstName, lastName, phone, color, flower, important, image } =
@@ -40,43 +42,44 @@ export const Profile = () => {
       <nav>
         <ul className={styles.title}>
           <Link to="/" onClick={backClick}>
-            Back
+            {t("profile.back")}
           </Link>
           <Logo />
           <li type="button" onClick={onLogoutClick}>
-            Log Out
+            {t("profile.logOut")}
           </li>
         </ul>
         <img src={image} alt="profile image" className={styles.profile_image} />
         <ul className={styles.cart_profile}>
-          <Link to={`/cart/${id}`}>Cart</Link>
+          <Link to={`/cart/${id}`}>{t("profile.cart")}</Link>
           <br />
-          <Link to={`/profile/${id}/edit`}>Edit Profile</Link>
+          <Link to={`/profile/${id}/edit`}>{t("profile.edit")}</Link>
         </ul>
       </nav>
       <div className={styles.info}>
-        <h1>personal information:</h1>
+        <h1>{t("profile.personal")}</h1>
         <div className={styles.text}>
           <p>
-            last name <span>{lastName}</span>
+            {t("profile.lastName")} <span>{lastName}</span>
           </p>
 
           <p>
-            first name <span>{firstName}</span>
+            {t("profile.firstName")} <span>{firstName}</span>
           </p>
 
           <p>
-            phone number <span>{phone}</span>
+            {t("profile.phone")} <span>{phone}</span>
           </p>
           <p>
-            favourite color <span>{color}</span>
+            {t("profile.color")} <span>{color}</span>
           </p>
 
           <p>
-            favourite flower <span>{flower}</span>
+            {t("profile.flower")} <span>{flower}</span>
           </p>
           <p>
-            important day <span>{format(new Date(important), "dd-MM")}</span>
+            {t("profile.date")}{" "}
+            <span>{format(new Date(important), "dd-MM")}</span>
           </p>
         </div>
       </div>

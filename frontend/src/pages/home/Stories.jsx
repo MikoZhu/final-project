@@ -4,6 +4,7 @@ import right_arrow from "../../assets/icons/right-arrow-black.png";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import data from "../../translation/english.json";
+import { useTranslation } from "react-i18next";
 
 const buttonStyle = {
   border: "none",
@@ -25,11 +26,12 @@ const properties = {
 };
 
 export const Stories = () => {
+  const { t } = useTranslation();
   const slideImages = data.stories.map((story) => story.image);
 
   return (
     <section className={styles.stories}>
-      <h1>Floral Language and Stories</h1>
+      <h1>{t("landingPage.storiesTitle")}</h1>
       <Slide
         images={slideImages}
         slidesToScroll={1}
@@ -45,10 +47,10 @@ export const Stories = () => {
               alt="wither image"
               className={styles.image}
             />
-            <h3>{story.title}</h3>
+            <h3>{t(`stories.${story.id - 1}.title`)}</h3>
 
             {/* <img src={left_arrow} alt="left arrow" className={styles.arrow} /> */}
-            <p>{story.content}</p>
+            <p>{t(`stories.${story.id - 1}.content`)}</p>
             {/* <img
                 src={right_arrow}
                 alt="right arrow"

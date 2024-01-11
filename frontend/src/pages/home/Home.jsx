@@ -7,7 +7,9 @@ import { Stories } from "./Stories";
 import { NiceToMeet } from "./NiceToMeet";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../../components/footer/Footer";
+import { useTranslation } from "react-i18next";
 export const Home = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const linkToFlower = () => {
     navigate("/flowers/basic");
@@ -18,19 +20,16 @@ export const Home = () => {
       <section className={styles.hero}>
         <div className={styles.hero_text}>
           <div className={styles.text}>
-            <h1>Your Weekly Dose of Fresh Florals:</h1>
-            <p>
-              “The splendour of a blossom lies in its graceful surrender to
-              time.”
-            </p>
-            <p>“The beauty of a flower is that it will wither.”</p>
+            <h1>{t("landingPage.header")}</h1>
+            <p>{t("landingPage.content1")}</p>
+            <p>{t("landingPage.content2")}</p>
 
             <button
               type="button"
               className={styles.weekly}
               onClick={linkToFlower}
             >
-              Weekly Bouquet
+              {t("landingPage.button.weeklyBouquet")}
             </button>
           </div>
         </div>

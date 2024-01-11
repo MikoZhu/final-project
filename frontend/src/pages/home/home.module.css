@@ -45,6 +45,7 @@
     width: 100px;
     display: block;
     position: relative;
+    transform:translate(0, -0.8rem);
 }
 .hero_img img{
    width:100%;
@@ -57,6 +58,9 @@
     }
     .text p{
         font-size:18px;
+    }
+    .half{
+        transform: translate(0, -1.4rem);
     }
     .hero_img img{
         width:100%;
@@ -83,6 +87,9 @@
     }
     .text p{
         text-align: start;
+    }
+    .half{
+        transform: translate(0, 2.3rem);
     }
     .hero_text h1{
         font-size: 30px;

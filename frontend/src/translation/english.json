@@ -1,4 +1,19 @@
 {
+  "landingPage":{
+    "header":"Your Weekly Dose of Fresh Florals:",
+    "content1":"\"The splendour of a blossom lies in its graceful surrender to time.\"",
+    "content2":"\"The beauty of a flower is that it will wither.\"",
+    "storiesTitle":"Floral language and stories",
+    "button":{
+      "weeklyBouquet":"Weekly Bouquet",
+      "contactUs":"Contact Us"
+    }
+},
+"navbar":{
+"weeklyBouquet":"weekly bouquet",
+"myAccount":"my account",
+"cart":"cart"
+},
   "stories": [
     {
       "id": 1,
@@ -22,8 +37,8 @@
   "meet": {
     "image": "src/assets/images/people_flower.png",
     "title": "Nice to meet you!",
-    "name": "We are Flora Echo",
-    "content1": "So glad you are here! \"Flora Echo\" conveys the idea of a reflection of the beauty, essence, or characteristics of flowers. ",
+    "name": "We are FloraEcho",
+    "content1": "So glad you are here! \"FloraEcho\" conveys the idea of a reflection of the beauty, essence, or characteristics of flowers. ",
     "content2": "I wish to carry this expectation, using weekly flowers as a carrier. Bringing flowers into the lives of every individual and family, it not only signifies beauty but also offers a gentle experience of wilting, confronting a slow and quiet demise.",
     "content3": "Every recipient of the flowers understands its inevitable journey towards withering. Through the companionship of fresh flowers, they experience the cycle of life and death, practicing the art of saying goodbye, living freely and gently. I hope that every sender of flowers can be filled with expectations, letting the card convey emotions."
   },
@@ -52,6 +67,24 @@
         ]
       }
     ]
+  },
+  "profile":{
+    "back":"Back",
+    "logOut":"Log Out",
+    "cart":"Cart",
+    "edit":"Edit Profile",
+    "personal":"Personal Information:",
+    "lastName":"Last Name",
+    "firstName":"First Name",
+    "phone":"Phone Number",
+    "color":"Favourite Color",
+    "flower":"Favourite Flower",
+    "date":"Important Date",
+    "button":{
+      "file":"Choose File",
+      "update":"Update Profile",
+      "new":"Add New Profile"
+    }
   },
   "flowers": {
     "basic": "Basic",
